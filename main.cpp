@@ -4,7 +4,7 @@ int main()
 {
     Game game;
 
-    while(game.running()){
+    while(true){
         //Update
         game.update();
         //Render

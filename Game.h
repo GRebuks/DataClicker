@@ -20,7 +20,7 @@ private:
 public:
     // Constructors
     Game();
-    ~Game();
+    virtual ~Game();
 
     // Accessors
     const bool running() const;

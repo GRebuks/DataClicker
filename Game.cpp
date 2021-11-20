@@ -2,14 +2,14 @@
 
 // Private functions
 void Game::initVar(){
-    this->window = nullptr;
+
 }
 
 void Game::initWin(){
     this->videoMode.width = 800;
     this->videoMode.height = 600;
     this->window = new sf::RenderWindow(this->videoMode, "Data Clicker", sf::Style::Titlebar | sf::Style::Close);
-    //this->window->setFramerateLimit(60);
+    this->window->setFramerateLimit(60);
 }
 
 void Game::pollEvents() {
