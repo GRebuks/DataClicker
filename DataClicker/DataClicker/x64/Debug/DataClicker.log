@@ -1,0 +1,7 @@
+﻿  Menu.cpp
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(27,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  DataClicker.vcxproj -> C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\x64\Debug\DataClicker.exe

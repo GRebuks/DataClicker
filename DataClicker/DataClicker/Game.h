@@ -1,12 +1,38 @@
 #pragma once
-#include "User.h"
-class Game
-{
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include "Menu.h"
+class Game {
 private:
-	User user;
+    // Variables
+
+    // Window
+    sf::RenderWindow* window;
+    sf::VideoMode videoMode;
+    sf::Event event;
+
+    // Functions
+    void initVar();
+    void initWin();
+    void initObj();
+    void pollEvents();
+
+    // Objects
+    Menu menu;
+
 
 public:
-	void init();
-	void render();
-};
+    // Variables
+    sf::Font font;
+    // Constructors
+    Game();
+    virtual ~Game();
 
+    // Accessors
+    const bool running() const;
+
+    // Functions
+    void update();
+    void render();
+};
