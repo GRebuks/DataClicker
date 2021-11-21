@@ -11,6 +11,7 @@ Biti tiks uzkrāti atmiņas aparatūrā - HDD un/vai SSD. Biti tiks ģenerēti d
 HDD - Hard Disc Drive - ietilpīgāks disks, taču lēnāk ģenerē bitus.  
 SSD - Solid State Drive - mazāk ietilpīgs disks, taču ģenerē bitus daudz ātrāk.  
 
+
 - Valūta  
 ASV Dolāri - USD - $  
 Dolārus būs iespējams iegūt, pārdodot ģenerētos datus. Ar dolāriem būs iespējams iegādāties jaunākas tehnoloģijas, ar kuru palīdzību var ģenerēt vairāk bitus.  
