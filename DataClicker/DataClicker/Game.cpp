@@ -2,7 +2,7 @@
 #include <iostream>
 // Private functions
 void Game::initVar(){
-    if (!font.loadFromFile("Fonts/Roboto-Light.ttf"))
+    if (!font.loadFromFile("Fonts/VT323-Regular.ttf"))
     {
         std::cout << "Cant open font" << std::endl;
     }
@@ -12,7 +12,7 @@ void Game::initVar(){
 }
 
 void Game::initWin(){
-    this->videoMode.width = 800;
+    this->videoMode.width = 1000;
     this->videoMode.height = 600;
     this->window = new sf::RenderWindow(this->videoMode, "Data Clicker", sf::Style::Titlebar | sf::Style::Close);
     this->window->setFramerateLimit(60);
@@ -20,8 +20,8 @@ void Game::initWin(){
 
 void Game::initObj()
 {
-    Menu menu2(this->videoMode.width, this->videoMode.height, this->font);
-    this->menu = menu2;
+    this->player = new Player();
+    this->menu = new Menu(this->player, this->videoMode.width, this->videoMode.height, this->font);
 }
 
 void Game::pollEvents() {
@@ -33,6 +33,11 @@ void Game::pollEvents() {
             case sf::Event::KeyPressed:
                 if(this->event.key.code == sf::Keyboard::Escape){
                     this->window->close();
+                }
+                break;
+            case sf::Event::MouseButtonPressed:
+                if (event.mouseButton.button == sf::Mouse::Left) {
+                    menu->buttonClick(window);
                 }
                 break;
         }
@@ -60,7 +65,11 @@ void Game::update() {
 }
 
 void Game::render() {
-    this->window->clear(sf::Color::White);
-    menu.draw(this->window);
+    this->window->clear(sf::Color(210, 154, 91));
+    this->menu->draw(this->window);
     this->window->display();
+}
+
+Player* Game::getPlayer() {
+    return this->player;
 }

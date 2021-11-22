@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "Menu.h"
+#include "Player.h"
+
 class Game {
 private:
     // Variables
@@ -19,7 +21,8 @@ private:
     void pollEvents();
 
     // Objects
-    Menu menu;
+    Menu* menu;
+    Player* player;
 
 
 public:
@@ -35,4 +38,6 @@ public:
     // Functions
     void update();
     void render();
+
+    Player* getPlayer();
 };

@@ -1,7 +1,6 @@
-﻿  Menu.cpp
-C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(27,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
+﻿  Game.cpp
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Game.cpp(24,79): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Game.cpp(24,56): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Player.cpp
+  Generating Code...
   DataClicker.vcxproj -> C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\x64\Debug\DataClicker.exe
