@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+
 #include "Menu.h"
 #include "Player.h"
 

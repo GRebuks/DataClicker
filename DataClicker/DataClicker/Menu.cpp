@@ -1,5 +1,7 @@
 #include "Menu.h"
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 // Initialization functions
 void Menu::initTexture()
@@ -69,6 +71,36 @@ void Menu::initObj(Player* player) {
 	this->player = player;
 }
 
+void Menu::initUpgrades()
+{
+	this->upgrades[0] = new Upgrades(10, 1, 1.10, 1.5);
+	this->upgrades[1] = new Upgrades(1000, 10, 1.5, 1.5);
+	this->upgrades[2] = new Upgrades(10000, 50, 1.8, 1.5);
+	this->upgrades[3] = new Upgrades(100000, 100, 2, 1.5);
+}
+
+void Menu::generate_bits()
+{
+	std::thread delay_thread(
+		[this]() {
+			std::this_thread::sleep_for(std::chrono::seconds{1});
+			player->add_bits(this->get_generator());
+			this->currency_text.setString(std::to_string(this->player->get_bits()) + " b");
+			this->generate_bits();
+		}
+	);
+	delay_thread.detach();
+}
+
+float Menu::get_generator()
+{
+	float sum = 0;
+	for (int i = 0; i < 4; i++) {
+		sum += upgrades[i]->get_production();
+	}
+	return sum;
+}
+
 void Menu::buttonClick(sf::RenderWindow *window)
 {
 	sf::Vector2f mouse = window->mapPixelToCoords(sf::Mouse::getPosition(*window));
@@ -87,15 +119,17 @@ void Menu::buttonClick(sf::RenderWindow *window)
 		bounds = upgrade_sprites[i].getGlobalBounds();
 		if (bounds.contains(mouse)) 
 		{
-			this->production += prod[i];
-			this->production_text.setString(std::to_string(this->production) + " bps");
+			this->upgrades[i]->buy_upgrade(player);
+			this->production_text.setString(std::to_string(this->get_generator()) + " bps");
+			this->currency_text.setString(std::to_string(this->player->get_bits()) + " b");
+			return;
 		}
 	}
 	sf::FloatRect bounds;
 	bounds.width = 570;
 	bounds.height = 600;
 	if (bounds.contains(mouse)) {
-		this->player->add_bits(this->production);
+		this->player->add_bits(100);
 		this->currency_text.setString(std::to_string(this->player->get_bits()) + " b");
 	}
 }
@@ -106,6 +140,8 @@ Menu::Menu(Player* player, float width, float height, sf::Font& font)
 	this->initSprite(width, height);
 	this->initText(width, height, font);
 	this->initObj(player);
+	this->initUpgrades();
+	this->generate_bits();
 }
 
 Menu::Menu()
@@ -135,3 +171,4 @@ void Menu::setText(sf::Text& text, sf::Font& font, sf::Color color, sf::String s
 	text.setPosition(pos);
 	text.setStyle(sf::Text::Bold);
 }
+

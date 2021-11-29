@@ -2,14 +2,15 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+
 #include "Player.h"
+#include "Upgrades.h"
+
 class Menu
 {
 private:
 	// Variables
 	int currency;
-	int production;
-	int prod[4] = {1, 2, 3, 4};
 
 	// Textures / Sprites
 	sf::Text currency_text;
@@ -29,12 +30,16 @@ private:
 
 	// Objects
 	Player* player;
+	Upgrades* upgrades[4];
 
 	// Functions
 	void initTexture();
 	void initSprite(float width, float height);
 	void initText(float width, float height, sf::Font& font);
 	void initObj(Player* player);
+	void initUpgrades();
+	void generate_bits();
+	float get_generator();
 
 	void setText(sf::Text& text, sf::Font& font, sf::Color color, sf::String string, unsigned int size, sf::Vector2f pos);
 
