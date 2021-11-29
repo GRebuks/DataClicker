@@ -65,7 +65,7 @@ void Game::update() {
 }
 
 void Game::render() {
-    this->window->clear(sf::Color(210, 154, 91));
+    this->window->clear(sf::Color::White);
     this->menu->draw(this->window);
     this->window->display();
 }

@@ -20,6 +20,9 @@ void Menu::initTexture()
 	// Shop background texture
 	this->shop_background_texture.loadFromFile("Textures/menu_shop.png");
 
+	// Shop upgrade texture
+	this->upgrade_texture.loadFromFile("Textures/upgrade.png");
+
 	// Currency field texture
 	this->currency_field_texture.loadFromFile("Textures/currency_info.png");
 
@@ -39,6 +42,12 @@ void Menu::initSprite(float width, float height)
 		this->button_sprites[i].setPosition(sf::Vector2f(570 + (width - 570) / 4 * i - 1, 54));
 	}
 
+	// Upgrade button sprites
+	for (int i = 0; i < 4; i++) {
+		this->upgrade_sprites[i].setTexture(this->upgrade_texture);
+		this->upgrade_sprites[i].setPosition(sf::Vector2f(571, 107 + 62 * i));
+	}
+
 	// Currency field sprite
 	this->currency_field.setTexture(this->currency_field_texture);
 	this->currency_field.setPosition(sf::Vector2f(570 / 2 - this->currency_field_texture.getSize().x / 2, 20));
@@ -48,10 +57,12 @@ void Menu::initSprite(float width, float height)
 	this->clickable.setPosition(sf::Vector2f(570 / 2 - this->currency_field_texture.getSize().x / 2, (height - 70) / 2 + 70));
 	this->clickable.setScale(0.5, 0.5);
 
+	// y107 x11
 }
 void Menu::initText(float width, float height, sf::Font& font)
 {
-	setText(this->currency_text, font, sf::Color::White, "Bits: 24 b", 24, sf::Vector2f(570 / 2 - this->currency_field_texture.getSize().x / 2 + 20, 27));
+	setText(this->currency_text, font, sf::Color::White, "0 b", 24, sf::Vector2f(570 / 2 - this->currency_field_texture.getSize().x / 2 + 20, 27));
+	setText(this->production_text, font, sf::Color::White, "0 bps", 24, sf::Vector2f(570 / 2 - this->currency_field_texture.getSize().x / 2 + 120, 27));
 }
 
 void Menu::initObj(Player* player) {
@@ -71,14 +82,21 @@ void Menu::buttonClick(sf::RenderWindow *window)
 			}
 			this->button_sprites[i].setTexture(this->button_textures[i][1]);
 			this->button_sprites[i].setScale(sf::Vector2f(0.98, 0.98));
+			break;
+		}
+		bounds = upgrade_sprites[i].getGlobalBounds();
+		if (bounds.contains(mouse)) 
+		{
+			this->production += prod[i];
+			this->production_text.setString(std::to_string(this->production) + " bps");
 		}
 	}
 	sf::FloatRect bounds;
 	bounds.width = 570;
 	bounds.height = 600;
 	if (bounds.contains(mouse)) {
-		this->player->add_bits(1);
-		this->currency_text.setString("Bits: " + std::to_string(this->player->get_bits()));
+		this->player->add_bits(this->production);
+		this->currency_text.setString(std::to_string(this->player->get_bits()) + " b");
 	}
 }
 
@@ -98,10 +116,12 @@ void Menu::draw(sf::RenderWindow *window)
 {
 	window->draw(currency_field);
 	window->draw(currency_text);
+	window->draw(production_text);
 	window->draw(clickable);
 	window->draw(shop_background);
 	for (int i = 0; i < 4; i++) {
 		window->draw(this->button_sprites[i]);
+		window->draw(this->upgrade_sprites[i]);
 	}
 }
 
