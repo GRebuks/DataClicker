@@ -65,6 +65,10 @@ void Menu::initText(float width, float height, sf::Font& font)
 {
 	setText(this->currency_text, font, sf::Color::White, "0 b", 24, sf::Vector2f(570 / 2 - this->currency_field_texture.getSize().x / 2 + 20, 27));
 	setText(this->production_text, font, sf::Color::White, "0 bps", 24, sf::Vector2f(570 / 2 - this->currency_field_texture.getSize().x / 2 + 120, 27));
+	for (int i = 0; i < 4; i++) {
+		setText(this->upgrade_cost[i], font, sf::Color::White, "Cost: " + std::to_string(this->upgrades[i]->get_cost()), 24, sf::Vector2f(575, 107 + 62 * i + 4));
+		setText(this->upgrade_pros[i], font, sf::Color::White, "+" + std::to_string(this->upgrades[i]->get_base_prod()), 24, sf::Vector2f(830, 107 + 62 * i + 4));
+	}
 }
 
 void Menu::initObj(Player* player) {
@@ -74,9 +78,9 @@ void Menu::initObj(Player* player) {
 void Menu::initUpgrades()
 {
 	this->upgrades[0] = new Upgrades(10, 1, 1.10, 1.5);
-	this->upgrades[1] = new Upgrades(1000, 10, 1.5, 1.5);
-	this->upgrades[2] = new Upgrades(10000, 50, 1.8, 1.5);
-	this->upgrades[3] = new Upgrades(100000, 100, 2, 1.5);
+	this->upgrades[1] = new Upgrades(1000, 100, 1.5, 1.5);
+	this->upgrades[2] = new Upgrades(10000, 500, 1.8, 1.5);
+	this->upgrades[3] = new Upgrades(100000, 2000, 2, 1.5);
 }
 
 void Menu::generate_bits()
@@ -120,6 +124,8 @@ void Menu::buttonClick(sf::RenderWindow *window)
 		if (bounds.contains(mouse)) 
 		{
 			this->upgrades[i]->buy_upgrade(player);
+			this->upgrade_cost[i].setString("Cost: " + std::to_string(this->upgrades[i]->get_cost()));
+			this->upgrade_pros[i].setString("+" + std::to_string(this->upgrades[i]->get_base_prod()));
 			this->production_text.setString(std::to_string(this->get_generator()) + " bps");
 			this->currency_text.setString(std::to_string(this->player->get_bits()) + " b");
 			return;
@@ -129,7 +135,7 @@ void Menu::buttonClick(sf::RenderWindow *window)
 	bounds.width = 570;
 	bounds.height = 600;
 	if (bounds.contains(mouse)) {
-		this->player->add_bits(100);
+		this->player->add_bits(1);
 		this->currency_text.setString(std::to_string(this->player->get_bits()) + " b");
 	}
 }
@@ -138,9 +144,9 @@ Menu::Menu(Player* player, float width, float height, sf::Font& font)
 {
 	this->initTexture();
 	this->initSprite(width, height);
-	this->initText(width, height, font);
 	this->initObj(player);
 	this->initUpgrades();
+	this->initText(width, height, font);
 	this->generate_bits();
 }
 
@@ -158,6 +164,8 @@ void Menu::draw(sf::RenderWindow *window)
 	for (int i = 0; i < 4; i++) {
 		window->draw(this->button_sprites[i]);
 		window->draw(this->upgrade_sprites[i]);
+		window->draw(this->upgrade_cost[i]);
+		window->draw(this->upgrade_pros[i]);
 	}
 }
 

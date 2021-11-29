@@ -1,7 +1,4 @@
-﻿  Game.cpp
-C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Game.cpp(24,79): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Game.cpp(24,56): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Menu.cpp
+﻿  Menu.cpp
 C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(50,62): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
@@ -43,14 +40,22 @@ C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicke
           [
               T=float
           ]
-C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(76,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(78,55): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(87,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(116,60): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(69,151): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  main.cpp
-  Generating Code...
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(70,151): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(80,52): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(82,56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(91,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\DataClicker\Menu.cpp(120,60): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
   DataClicker.vcxproj -> C:\Users\rebuk\Desktop\RVT\Uzdevumi\Sistēmu Programmēšana\AS - C++\DataClicker ReVamp\DataClicker\DataClicker\x64\Debug\DataClicker.exe

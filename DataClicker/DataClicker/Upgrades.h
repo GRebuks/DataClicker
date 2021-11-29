@@ -11,11 +11,11 @@ private:
 	int count = 0;
 
 	// Base upgrade values
-	int baseCost;
-	int baseProduction;
+	int base_cost;
+	int base_production;
 
-	float costRate;
-	float productionRate;
+	float cost_rate;
+	float production_rate;
 
 public:
 	// Constructors
@@ -25,5 +25,7 @@ public:
 	// Functions
 	void buy_upgrade(Player* player);
 	float get_production();
+	float get_cost();
+	float get_base_prod();
 };
 

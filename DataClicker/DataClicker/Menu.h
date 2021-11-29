@@ -16,6 +16,10 @@ private:
 	sf::Text currency_text;
 	sf::Text production_text;
 
+	sf::Text upgrade_cost[4];
+	sf::Text upgrade_desc[4];
+	sf::Text upgrade_pros[4];
+
 	sf::Texture button_textures[4][2];
 	sf::Texture upgrade_texture;
 	sf::Texture shop_background_texture;
